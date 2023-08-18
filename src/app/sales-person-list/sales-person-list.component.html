@@ -1,0 +1,31 @@
+<p>{{title}}</p>
+<p>Test test</p>
+
+<p>123</p>
+Minu nimi on {{firstName}} {{lastName}}
+<p></p>{{salesPersonList[1].firstName}} {{salesPersonList[1].lastName}}
+<p></p>
+<table border = 1>
+    <thead>
+        <th>Eesnimi</th>
+        <th>Perekonna nimi</th>
+        <th>Email</th>
+        <th>Müügikogus</th>
+        <th>Kvoot?</th>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let tempSalesPerson of salesPersonList">
+            <td>{{tempSalesPerson.firstName}}</td>
+            <td>{{tempSalesPerson.lastName}}</td>
+            <td>{{tempSalesPerson.email}}</td>
+            <td>{{tempSalesPerson.salesVolume}}</td>
+
+            <td>
+                <div *ngIf="tempSalesPerson.salesVolume >= 60000; else myElseBlock">Jah</div>
+                <ng-template #myElseBlock>Ei</ng-template>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
